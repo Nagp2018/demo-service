@@ -1,0 +1,16 @@
+steps:
+- name: 'gcr.io/cloud-builders/mvn'
+  args: [ 'install' ]
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'gcr.io/nagp2019-268411/user-image:v2', '.' ]
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/nagp2019-268411/user-image:v2']
+- name: 'gcr.io/cloud-builders/gke-deploy:stable'
+  args:
+  - run
+  - --filename=./manifests/
+  - --image=gcr.io/nagp2019-268411/user-image:v2
+  - --location=us-central1-a
+  - --cluster=bankpoc
+timeout: 960s
+tags: ['mytag1', 'mytag2']

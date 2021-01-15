@@ -1,0 +1,10 @@
+apiVersion: skaffold/v1
+kind: Config
+build:
+  artifacts:
+  - image: docker.io/nsingla85/usertest:v3
+    jib: {}
+  tagPolicy:
+    gitCommit: {}
+  
+
