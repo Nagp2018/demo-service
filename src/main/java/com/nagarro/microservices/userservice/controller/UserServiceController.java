@@ -25,7 +25,7 @@ public class UserServiceController {
 	@GetMapping("/test")
 	public String getOrderTest() {
 		
-		return "Welcome to NAGP Batch 2022 : Microservices Session 2";
+		return "Welcome to NAGP Batch 2022 : Microservices Session 3";
 	}
 
 	
